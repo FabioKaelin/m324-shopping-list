@@ -1,12 +1,13 @@
+
 # Reflexion - Fabio und Shansai
 
 ## Überblick über die Pipeline
 
-In diesem Projekt habe ich eine CI/CD-Pipeline mit GitHub Actions erstellt, die aus drei Hauptphasen besteht: **Lint**, **Test** und **Deploy**. Jede dieser Phasen hat eine spezifische Funktion, um die Codequalität und Zuverlässigkeit zu gewährleisten.
+In diesem Projekt haben wir eine CI/CD-Pipeline mit GitHub Actions erstellt, die aus drei Hauptphasen besteht: **Lint**, **Test** und **Deploy**. Jede dieser Phasen hat eine spezifische Funktion, um die Codequalität und Zuverlässigkeit zu gewährleisten.
 
 ### 1. Lint-Job
 
-Der Linting-Schritt stellt sicher, dass der Code den festgelegten Stil- und Codierstandards entspricht, bevor weitere Schritte durchlaufen werden. Ich habe Caching verwendet, um die Pipeline zu beschleunigen, indem die Node-Module zwischengespeichert wurden, was die Installationszeit der Abhängigkeiten verkürzt.
+Der Linting-Schritt stellt sicher, dass der Code den festgelegten Stil- und Codierstandards entspricht, bevor weitere Schritte durchlaufen werden. Wir haben Caching verwendet, um die Pipeline zu beschleunigen, indem die Node-Module zwischengespeichert werden, was die Installationszeit der Abhängigkeiten verkürzt.
 
 **Warum dieser Schritt?**
 Linting hilft dabei, Syntaxfehler, undefinierte Variablen und Stilprobleme frühzeitig im Entwicklungsprozess zu erkennen, was Fehler im Produktionscode minimiert.
@@ -29,9 +30,9 @@ Automatisierte Bereitstellung ist wichtig für eine kontinuierliche Auslieferung
 
 Rückblickend auf dieses Pipeline-Setup ergeben sich einige Beobachtungen und mögliche Verbesserungen:
 
-1. **Caching-Länge**: Der Caching-Prozess geht bei einem von unserem Tests 2 Minuten währent das installieren der Node-Modules nur 9 Sekunden dauert. Dies ist nicht effizient und könnte optimiert werden.
-2. **Deployen**: Aktuell wird der Code nur gebaut und nicht wirklich deployt. Es wäre sinnvoll, eine echte Deployment-Strategie zu implementieren, um den Code in einer echten Umgebung zu testen. Es muss jedoch unbedingt darauf geachtet werden, das diese Pipeline nicht in die Produktionsumgebung deployt, da es auf einen `push` auf den `main` Branch reagiert, was zu ungewollten Deployments führen könnte.
+1. **Caching-Länge**: Der Caching-Prozess dauert bei einem unserer Tests 2 Minuten, während das Installieren der Node-Modules nur 9 Sekunden dauert. Dies ist nicht effizient und könnte optimiert werden.
+2. **Deployen**: Aktuell wird der Code nur gebaut und nicht wirklich deployed. Es wäre sinnvoll, eine echte Deployment-Strategie zu implementieren, um den Code in einer echten Umgebung zu testen. Dabei müssten wir jedoch unbedingt darauf achten, dass diese Pipeline nicht direkt in die Produktionsumgebung deployed, da sie auf einen `push` auf den `main` Branch reagiert, was zu ungewollten Deployments führen könnte.
 
 ### Fazit
 
-Diese Pipeline bietet eine solide Grundlage zur Automatisierung von Codequalitätsprüfungen und Deployment, aber es gibt Raum für Verbesserungen. Durch regelmässige Überprüfung und Anpassung der Pipeline können wir die Effizienz und Zuverlässigkeit der CI/CD-Prozesse weiter steigern.
+Diese Pipeline bietet eine solide Grundlage zur Automatisierung von Codequalitätsprüfungen und Deployment, aber es gibt Raum für Verbesserungen. Durch regelmäßige Überprüfung und Anpassung der Pipeline können wir die Effizienz und Zuverlässigkeit der CI/CD-Prozesse weiter steigern.
