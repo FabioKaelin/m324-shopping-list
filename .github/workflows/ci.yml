@@ -34,7 +34,12 @@ jobs:
     needs: prep
     steps:
       - uses: actions/checkout@v4
-      
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
+        
       - name: Cache Node modules
         uses: actions/cache@v3
         with:
@@ -52,6 +57,11 @@ jobs:
     needs: lint
     steps:
       - uses: actions/checkout@v4
+      
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
 
       - name: Cache Node modules
         uses: actions/cache@v3
@@ -70,6 +80,11 @@ jobs:
     needs: test
     steps:
       - uses: actions/checkout@v4
+      
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
 
       - name: Cache Node modules
         uses: actions/cache@v3
