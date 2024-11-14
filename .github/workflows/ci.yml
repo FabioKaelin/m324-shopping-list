@@ -11,15 +11,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      - name: install node
-        uses: actions/setup-node@v2
-        with:
-          node-version: '22'
-
-      - name: install dependencies
-        run: |
-          npm install
-
       - name: Cache Node modules
         uses: actions/cache@v3
         with:
@@ -27,6 +18,15 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - name: install dependencies
+        run: |
+          npm install
+
+      - name: install node
+        uses: actions/setup-node@v2
+        with:
+          node-version: '22'
 
   lint:
     runs-on: ubuntu-22.04
@@ -46,6 +46,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - name: install dependencies
+        run: |
+          npm install
 
       - name: lint
         run: |
@@ -70,6 +74,10 @@ jobs:
           restore-keys: |
             ${{ runner.os }}-node-
 
+      - name: install dependencies
+        run: |
+          npm install
+
       - name: test
         run: |
           npm run test
@@ -92,6 +100,10 @@ jobs:
           key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
+
+      - name: install dependencies
+        run: |
+          npm install
 
       - name: build
         run: |
